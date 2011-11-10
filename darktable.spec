@@ -2,15 +2,14 @@
 
 Name:		darktable
 Version:	0.9.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Utility to organize and develop raw images
 
 Group:		Graphics
 License:	GPLv3+
 URL:		http://darktable.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-#Patch0:		darktable-0.9.2-mdv-libpng15.patch
-#Patch1:		darktable-0.9.3-mdv-rpath.patch
+Patch1:		darktable-0.9.3-mdv-rpath.patch
 Patch3:		darktable-0.9.3_g_thread_init.patch
 BuildRequires:	intltool, gettext
 BuildRequires:	cmake
@@ -56,7 +55,8 @@ or broken, use at your own risk.
 
 %prep
 %setup -q
-%apply_patches
+%patch1 -p1
+%patch3 -p1
 
 %build
 %cmake \
