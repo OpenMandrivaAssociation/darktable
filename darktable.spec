@@ -11,6 +11,7 @@ URL:		http://darktable.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 #Patch0:		darktable-0.9.2-mdv-libpng15.patch
 #Patch1:		darktable-0.9.3-mdv-rpath.patch
+Patch3:		darktable-0.9.3_g_thread_init.patch
 BuildRequires:	intltool, gettext
 BuildRequires:	cmake
 BuildRequires:	zlib-devel
@@ -55,8 +56,7 @@ or broken, use at your own risk.
 
 %prep
 %setup -q
-#patch0 -p1
-#patch1 -p1
+%apply_patches
 
 %build
 %cmake \
@@ -67,15 +67,16 @@ or broken, use at your own risk.
 	-DPROJECT_VERSION:STRING="%{name}-%{version}-%{release}" \
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON \
 	-DCMAKE_SKIP_RPATH:BOOLEAN=OFF
+
 %make
 
 
 %install
 rm -rf %{buildroot}
 export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
-pushd build
-%makeinstall_std
-popd
+
+%makeinstall_std -C build
+
 install -D ./data/darktable.schemas %{buildroot}/%{_sysconfdir}/gconf/schemas/darktable.schemas
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %find_lang %{name}
@@ -83,16 +84,11 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/darktable.desktop
 rm -rf %{buildroot}%{_datadir}/doc/darktable
 
 
-%clean
-rm -rf %{buildroot}
-
-
 %preun
 %preun_uninstall_gconf_schemas %{name}
 
  
 %files -f %{name}.lang 
-%defattr(-,root,root,-)
 %doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/darktable
 %{_bindir}/darktable-cltest
