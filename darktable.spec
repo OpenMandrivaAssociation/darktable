@@ -17,7 +17,7 @@ BuildRequires:	zlib-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	jpeg-devel, png-devel, tiff-devel
 BuildRequires:	librsvg2-devel >= 2.26
-BuildRequires:	libGConf2-devel, gtk2-devel, cairo-devel, libglade2-devel
+BuildRequires:	libGConf2-devel, gtk2-devel, cairo-devel, libglade2.0-devel
 BuildRequires:	lcms2-devel
 BuildRequires:	libexiv-devel
 BuildRequires:	lensfun-devel
