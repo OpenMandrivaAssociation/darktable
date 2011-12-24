@@ -1,15 +1,15 @@
 %define _disable_ld_no_undefined 1
+%define _cmake_skip_rpath -DCMAKE_SKIP_RPATH:BOOL=OFF
 
 Name:		darktable
 Version:	0.9.3
-Release:	%mkrel 2
+Release:	3
 Summary:	Utility to organize and develop raw images
 
 Group:		Graphics
 License:	GPLv3+
 URL:		http://darktable.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-Patch1:		darktable-0.9.3-mdv-rpath.patch
 Patch3:		darktable-0.9.3_g_thread_init.patch
 BuildRequires:	intltool, gettext
 BuildRequires:	cmake
@@ -55,7 +55,6 @@ or broken, use at your own risk.
 
 %prep
 %setup -q
-%patch1 -p1
 %patch3 -p1
 
 %build
@@ -65,8 +64,7 @@ or broken, use at your own risk.
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DBINARY_PACKAGE_BUILD=1 \
 	-DPROJECT_VERSION:STRING="%{name}-%{version}-%{release}" \
-	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON \
-	-DCMAKE_SKIP_RPATH:BOOLEAN=OFF
+	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON
 
 %make
 
@@ -93,6 +91,7 @@ rm -rf %{buildroot}%{_datadir}/doc/darktable
 %{_bindir}/darktable
 %{_bindir}/darktable-cltest
 %{_bindir}/darktable-faster
+%{_bindir}/darktable-viewer
 %{_libdir}/darktable
 %{_datadir}/applications/darktable.desktop
 %{_datadir}/darktable
