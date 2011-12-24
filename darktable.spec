@@ -88,10 +88,7 @@ rm -rf %{buildroot}%{_datadir}/doc/darktable
  
 %files -f %{name}.lang 
 %doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
-%{_bindir}/darktable
-%{_bindir}/darktable-cltest
-%{_bindir}/darktable-faster
-%{_bindir}/darktable-viewer
+%{_bindir}/darktable*
 %{_libdir}/darktable
 %{_datadir}/applications/darktable.desktop
 %{_datadir}/darktable
