@@ -1,10 +1,9 @@
 %define _cmake_skip_rpath -DCMAKE_SKIP_RPATH:BOOL=OFF
 
 Name:		darktable
-Version:	1.0.3
+Version:	1.0.4
 Release:	%mkrel 1
 Summary:	Utility to organize and develop raw images
-
 Group:		Graphics
 License:	GPLv3+
 URL:		http://darktable.sourceforge.net/
@@ -37,13 +36,11 @@ BuildRequires:	gnome-doc-utils
 BuildRequires:	fop
 BuildRequires:	desktop-file-utils
 
-
 %description
 Darktable is an open source photography workflow application and RAW developer.
 A virtual lighttable and darkroom for photographers. It manages your digital
 negatives in a database, lets you view them through a zoomable lighttable
 and enables you to develop raw images and enhance them.
-
 
 %package plugins-experimental
 Summary:	Darktable plugins that are unstable, unfinished or likely-to-change-soon
@@ -57,7 +54,6 @@ and enables you to develop raw images and enhance them.
 
 This package contains plugins being under development. They can be unstable
 or broken, use at your own risk.
-
 
 %prep
 %setup -q
@@ -73,7 +69,6 @@ or broken, use at your own risk.
 
 %make
 
-
 %install
 rm -rf %{buildroot}
 export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
@@ -86,9 +81,6 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 desktop-file-validate %{buildroot}/%{_datadir}/applications/darktable.desktop
 rm -rf %{buildroot}%{_datadir}/doc/darktable
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
 %doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/darktable*
@@ -97,13 +89,5 @@ rm -rf %{buildroot}
 %{_datadir}/darktable
 %{_iconsbasedir}/*/apps/darktable.*
 %{_datadir}/man/man1/darktable.1.*
-%exclude %{_libdir}/darktable/plugins/libcolorcontrast.so
-%exclude %{_libdir}/darktable/plugins/libcolortransfer.so
-%exclude %{_libdir}/darktable/plugins/liblowpass.so
-%exclude %{_libdir}/darktable/plugins/libinvert.so
 
-%files plugins-experimental
-%{_libdir}/darktable/plugins/libcolorcontrast.so
-%{_libdir}/darktable/plugins/libcolortransfer.so
-%{_libdir}/darktable/plugins/liblowpass.so
-%{_libdir}/darktable/plugins/libinvert.so
+#files plugins-experimental
