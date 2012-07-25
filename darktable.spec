@@ -1,7 +1,7 @@
 %define _cmake_skip_rpath -DCMAKE_SKIP_RPATH:BOOL=OFF
 
 Name:		darktable
-Version:	1.0.4
+Version:	1.0.5
 Release:	%mkrel 1
 Summary:	Utility to organize and develop raw images
 Group:		Graphics
@@ -34,7 +34,6 @@ BuildRequires:	dbus-glib-devel >= 0.80
 BuildRequires:	libgnome-keyring-devel >= 2.28.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	fop
-BuildRequires:	desktop-file-utils
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
@@ -78,7 +77,6 @@ export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %find_lang %{name}
-desktop-file-validate %{buildroot}/%{_datadir}/applications/darktable.desktop
 rm -rf %{buildroot}%{_datadir}/doc/darktable
 
 %files -f %{name}.lang
