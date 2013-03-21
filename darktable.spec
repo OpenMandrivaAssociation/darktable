@@ -78,6 +78,6 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 %{_libdir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}
-%{_iconsbasedir}/*/apps/%{name}.*
+%{_iconsdir}/hicolor/*/apps/%{name}.*
 %{_mandir}/man1/%{name}.1.*
 
