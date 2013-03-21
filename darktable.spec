@@ -16,7 +16,6 @@ URL:		http://darktable.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
-BuildRequires:	fop
 BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
