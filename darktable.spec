@@ -7,7 +7,7 @@
 %endif
 
 Name:		darktable
-Version:	1.1.4
+Version:	1.2
 Release:	1
 Summary:	Utility to organize and develop raw images
 Group:		Graphics
