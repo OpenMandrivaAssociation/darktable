@@ -7,7 +7,7 @@
 %endif
 
 Name:		darktable
-Version:	1.2
+Version:	1.2.1
 Release:	1
 Summary:	Utility to organize and develop raw images
 Group:		Graphics
@@ -23,6 +23,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(cairo)
+BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(flickcurl)
