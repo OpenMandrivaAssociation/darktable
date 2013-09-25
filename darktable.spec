@@ -6,13 +6,13 @@
 %define __noautoreq 'libdarktable\\.so(.*)'
 %endif
 
-Name:		darktable
-Version:	1.2.1
-Release:	1
 Summary:	Utility to organize and develop raw images
+Name:		darktable
+Version:	1.2.3
+Release:	1
 Group:		Graphics
 License:	GPLv3+
-URL:		http://darktable.sourceforge.net/
+Url:		http://darktable.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(flickcurl)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
+BuildRequires:	pkgconfig(GraphicsMagick)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(lcms2)
@@ -48,6 +49,18 @@ Darktable is an open source photography workflow application and RAW developer.
 A virtual lighttable and darkroom for photographers. It manages your digital
 negatives in a database, lets you view them through a zoomable lighttable
 and enables you to develop raw images and enhance them.
+
+%files -f %{name}.lang
+%doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
+%{_bindir}/%{name}*
+%{_libdir}/%{name}
+%{_datadir}/appdata/darktable.appdata.xml
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}
+%{_iconsdir}/hicolor/*/apps/%{name}.*
+%{_mandir}/man1/%{name}.1.*
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -72,13 +85,4 @@ export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 rm -rf %{buildroot}%{_datadir}/doc/%{name}
-
-%files -f %{name}.lang
-%doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
-%{_bindir}/%{name}*
-%{_libdir}/%{name}
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}
-%{_iconsdir}/hicolor/*/apps/%{name}.*
-%{_mandir}/man1/%{name}.1.*
 
