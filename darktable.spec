@@ -8,7 +8,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	1.2.3
+Version:	1.4
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -57,8 +57,8 @@ and enables you to develop raw images and enhance them.
 %{_datadir}/appdata/darktable.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}
-%{_iconsdir}/hicolor/*/apps/%{name}.*
-%{_mandir}/man1/%{name}.1.*
+%{_iconsdir}/hicolor/*/apps/%{name}*
+%{_mandir}/man1/%{name}*
 
 #----------------------------------------------------------------------------
 
