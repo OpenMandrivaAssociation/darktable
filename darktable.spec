@@ -14,6 +14,7 @@ Group:		Graphics
 License:	GPLv3+
 Url:		http://darktable.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
+Source100:	%{name}.rpmlintrc
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
