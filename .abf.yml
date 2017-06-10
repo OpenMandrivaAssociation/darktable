@@ -1,5 +1,2 @@
-removed_sources:
-  darktable-1.2.3.tar.xz: dbd7545d1fbb5f67862f62ae39c7e6ba008d1c10
-  darktable-1.4.tar.xz: e12e2f68f2a6ba1467484d8f25b4709c3388a517
 sources:
-  darktable-1.4.2.tar.xz: 4fa16b7073720e4195639fe108cd45ba27e23f50
+  darktable-2.2.5.tar.xz: f60ab3f9118e96c311f286a87102ad0d647cb111

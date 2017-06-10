@@ -1,5 +1,3 @@
-%define _cmake_skip_rpath -DCMAKE_SKIP_RPATH:BOOL=OFF
-
 # Keep libraries private
 %if %{_use_internal_dependency_generator}
 %define __noautoprov '(.*)\\.so(.*)'
@@ -8,12 +6,12 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	1.4.2
-Release:	2
+Version:	2.2.5
+Release:	1
 Group:		Graphics
 License:	GPLv3+
-Url:		http://darktable.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
+Url:		http://www.darktable.org
+Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
