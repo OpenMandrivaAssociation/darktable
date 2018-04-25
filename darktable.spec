@@ -65,6 +65,9 @@ and enables you to develop raw images and enhance them.
 %setup -q
 
 %build
+# Fix clang headers detection
+sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
+
 %cmake \
 	-DCMAKE_LIBRARY_PATH:PATH=%{_libdir} \
 	-DDONT_INSTALL_GCONF_SCHEMAS:BOOLEAN=ON \
