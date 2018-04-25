@@ -6,12 +6,12 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	2.2.5
+Version:	2.4.3
 Release:	1
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
-Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
