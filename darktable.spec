@@ -13,7 +13,7 @@ License:	GPLv3+
 Url:		http://www.darktable.org
 Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
-Patch0:		darktable-2.4.3-fix-llvm.patch
+Patch0:		darktable-2.4.3-fix-llvm2.patch
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
