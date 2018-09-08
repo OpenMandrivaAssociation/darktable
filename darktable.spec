@@ -43,6 +43,9 @@ BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
+# For OpenCL
+BuildRequires:	llvm
+BuildRequires:	clang
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
