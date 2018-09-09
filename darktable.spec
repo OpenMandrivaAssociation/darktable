@@ -24,6 +24,7 @@ BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(colord)
+BuildRequires:	pkgconfig(colord-gtk)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(flickcurl)
