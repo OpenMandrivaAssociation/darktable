@@ -83,6 +83,9 @@ and enables you to develop raw images and enhance them.
 #patch0 -p0
 
 %build
+export CC=gcc
+export CXX=g++
+
 # Fix clang headers detection
 sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
 
