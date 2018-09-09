@@ -48,6 +48,11 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libssh)
 BuildRequires:	pkgconfig(libopenjp2)
 BuildRequires:	pkgconfig(iso-codes)
+BuildRequires:	pkgconfig(libsecret-1)
+BuildRequires:	pkgconfig(lua)
+BuildRequires:	pkgconfig(osmgpsmap-1.0)
+BuildRequires:	cups-devel
+BuildRequires:	po4a
 # For OpenCL
 BuildRequires:	llvm
 BuildRequires:	llvm-devel
