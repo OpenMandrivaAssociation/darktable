@@ -6,13 +6,14 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	2.2.5
+Version:	2.4.4
 Release:	1
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
-Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
+#Patch0:		darktable-2.4.3-fix-llvm2.patch
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -23,6 +24,7 @@ BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(colord)
+BuildRequires:	pkgconfig(colord-gtk)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(exiv2)
 BuildRequires:	pkgconfig(flickcurl)
@@ -42,6 +44,20 @@ BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pugixml-devel
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(libssh)
+BuildRequires:	pkgconfig(libopenjp2)
+BuildRequires:	pkgconfig(iso-codes)
+BuildRequires:	pkgconfig(libsecret-1)
+BuildRequires:	pkgconfig(lua)
+BuildRequires:	pkgconfig(osmgpsmap-1.0)
+BuildRequires:	cups-devel
+BuildRequires:	po4a
+# For OpenCL
+BuildRequires:	llvm
+BuildRequires:	llvm-devel
+BuildRequires:	clang
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
@@ -50,7 +66,7 @@ negatives in a database, lets you view them through a zoomable lighttable
 and enables you to develop raw images and enhance them.
 
 %files -f %{name}.lang
-%doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
+#doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/%{name}*
 %{_libdir}/%{name}
 %{_datadir}/appdata/darktable.appdata.xml
@@ -58,13 +74,18 @@ and enables you to develop raw images and enhance them.
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
+%{_mandir}/*
 
 #----------------------------------------------------------------------------
 
 %prep
 %setup -q
+#patch0 -p0
 
 %build
+# Fix clang headers detection
+sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
+
 %cmake \
 	-DCMAKE_LIBRARY_PATH:PATH=%{_libdir} \
 	-DDONT_INSTALL_GCONF_SCHEMAS:BOOLEAN=ON \

@@ -1,0 +1,13 @@
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt
++++ CMakeLists.txt	2018-05-05 03:45:33.665641501 +0200
+@@ -348,7 +348,7 @@
+   endmacro()
+ 
+   # 3.9 is the first version with which this works.
+-  find_llvm("6.0;5.0;4.0;3.9")
++  find_llvm("6.0;5.0.1;4.0;3.9")
+ 
+   if (LLVM_FOUND)
+     message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
