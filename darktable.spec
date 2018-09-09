@@ -46,6 +46,7 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pugixml-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libssh)
+BuildRequires:	pkgconfig(libopenjp2)
 # For OpenCL
 BuildRequires:	llvm
 BuildRequires:	llvm-devel
