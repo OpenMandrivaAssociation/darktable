@@ -43,6 +43,8 @@ BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pugixml-devel
+BuildRequires:	pkgconfig(gtk+-3.0)
 # For OpenCL
 BuildRequires:	llvm
 BuildRequires:	llvm-devel
