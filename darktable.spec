@@ -73,6 +73,7 @@ and enables you to develop raw images and enhance them.
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
+%{_mandir}/*
 
 #----------------------------------------------------------------------------
 
