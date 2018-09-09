@@ -65,7 +65,7 @@ negatives in a database, lets you view them through a zoomable lighttable
 and enables you to develop raw images and enhance them.
 
 %files -f %{name}.lang
-%doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
+#doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/%{name}*
 %{_libdir}/%{name}
 %{_datadir}/appdata/darktable.appdata.xml
