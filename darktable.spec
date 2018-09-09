@@ -45,6 +45,7 @@ BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
 # For OpenCL
 BuildRequires:	llvm
+BuildRequires:	llvm-devel
 BuildRequires:	clang
 
 %description
