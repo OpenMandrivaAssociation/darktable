@@ -7,7 +7,7 @@
 Summary:	Utility to organize and develop raw images
 Name:		darktable
 Version:	2.4.4
-Release:	1
+Release:	2
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
@@ -75,6 +75,7 @@ and enables you to develop raw images and enhance them.
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
 %{_mandir}/*
+%config %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
 #----------------------------------------------------------------------------
 
@@ -104,6 +105,12 @@ sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|
 export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %makeinstall_std -C build
+
+#to find libdarktable.so
+mkdir -p %{buildroot}%{_sysconfdir}/ld.so.conf.d
+cat > %{buildroot}%{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf << EOF
+%{_libdir}/%{name}
+EOF
 
 %find_lang %{name}
 
