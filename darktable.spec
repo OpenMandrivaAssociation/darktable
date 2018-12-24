@@ -91,7 +91,7 @@ export CXX=g++
 %endif
 
 # Fix clang headers detection
-sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
+#sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
 
 %cmake \
 	-DCMAKE_LIBRARY_PATH:PATH=%{_libdir} \
