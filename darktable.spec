@@ -58,6 +58,7 @@ BuildRequires:	po4a
 BuildRequires:	llvm
 BuildRequires:	llvm-devel
 BuildRequires:	clang
+BuildRequires:	lld
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
