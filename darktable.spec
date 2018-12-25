@@ -6,8 +6,8 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	2.4.4
-Release:	2
+Version:	2.6.0
+Release:	1
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
@@ -58,6 +58,7 @@ BuildRequires:	po4a
 BuildRequires:	llvm
 BuildRequires:	llvm-devel
 BuildRequires:	clang
+BuildRequires:	lld
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
@@ -91,7 +92,7 @@ export CXX=g++
 %endif
 
 # Fix clang headers detection
-sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
+#sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
 
 %cmake \
 	-DCMAKE_LIBRARY_PATH:PATH=%{_libdir} \
