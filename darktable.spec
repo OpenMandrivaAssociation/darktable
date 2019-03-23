@@ -6,7 +6,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	2.6.1
+Version:	2.6.2
 Release:	1
 Group:		Graphics
 License:	GPLv3+
