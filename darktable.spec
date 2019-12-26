@@ -84,10 +84,10 @@ and enables you to develop raw images and enhance them.
 
 %build
 #Build for Cooker i686 fail with clang. For it use gcc, all other arch stay with clang. (penguin)
-%ifarch %{ix86}
+#ifarch %{ix86}
 export CC=gcc
 export CXX=g++
-%endif
+#endif
 
 # Fix clang headers detection
 #sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
