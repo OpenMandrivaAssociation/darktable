@@ -46,6 +46,7 @@ BuildRequires:	pugixml-devel
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libssh)
 BuildRequires:	pkgconfig(libopenjp2)
+BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(lua)
