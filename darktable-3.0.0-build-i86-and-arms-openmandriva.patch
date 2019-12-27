@@ -1,0 +1,14 @@
+Index: src/is_supported_platform.h
+===================================================================
+--- src/is_supported_platform.h
++++ src/is_supported_platform.h	2019-12-27 16:55:51.066028478 +0100
+@@ -24,7 +24,8 @@
+ #error "Unfortunately we only work on litte-endian systems."
+ #endif
+ 
+-#if (defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64))
++#if(defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64) || defined(__aarch64__) || defined(__armv7hnl__) || defined(__i386__)       \
++    || defined(__i386))
+ #define DT_SUPPORTED_X86 1
+ #else
+ #define DT_SUPPORTED_X86 0
