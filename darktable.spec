@@ -58,6 +58,8 @@ BuildRequires:	llvm-devel
 BuildRequires:	clang
 BuildRequires:	lld
 
+BuildRequires:  lldb
+
 %description
 Darktable is an open source photography workflow application and RAW developer.
 A virtual lighttable and darkroom for photographers. It manages your digital
