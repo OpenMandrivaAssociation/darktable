@@ -104,6 +104,7 @@ and enables you to develop raw images and enhance them.
 	-DBUILD_NOISE_TOOLS=ON \
 	-DUSE_OPENCL=ON \
 	-DUSE_OPENMP=ON \
+	-DRAWSPEED_ENABLE_LTO=ON \
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON
 
 %make_build
