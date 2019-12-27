@@ -13,6 +13,7 @@ License:	GPLv3+
 Url:		http://www.darktable.org
 Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
+Patch0:		darktable-3.0.0-build-i86-and-arms-openmandriva.patch
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -83,7 +84,7 @@ and enables you to develop raw images and enhance them.
 
 %prep
 %setup -q
-#patch0 -p0
+%autopatch -p0
 
 %build
 #Build for Cooker i686 fail with clang. For it use gcc, all other arch stay with clang. (penguin)
