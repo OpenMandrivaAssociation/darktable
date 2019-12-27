@@ -6,7 +6,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	2.6.3
+Version:	3.0.0
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -30,7 +30,6 @@ BuildRequires:	pkgconfig(flickcurl)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(GraphicsMagick)
-BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(lcms2)
 BuildRequires:	pkgconfig(lensfun)
@@ -59,6 +58,8 @@ BuildRequires:	llvm-devel
 BuildRequires:	clang
 BuildRequires:	lld
 
+BuildRequires:  lldb
+
 %description
 Darktable is an open source photography workflow application and RAW developer.
 A virtual lighttable and darkroom for photographers. It manages your digital
@@ -85,10 +86,10 @@ and enables you to develop raw images and enhance them.
 
 %build
 #Build for Cooker i686 fail with clang. For it use gcc, all other arch stay with clang. (penguin)
-%ifarch %{ix86}
-export CC=gcc
-export CXX=g++
-%endif
+#ifarch %{ix86}
+#export CC=gcc
+#export CXX=g++
+#endif
 
 # Fix clang headers detection
 #sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
