@@ -101,6 +101,9 @@ and enables you to develop raw images and enhance them.
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DBINARY_PACKAGE_BUILD=1 \
 	-DPROJECT_VERSION:STRING="%{name}-%{EVRD}" \
+	-DBUILD_NOISE_TOOLS=ON \
+	-DUSE_OPENCL=ON \
+	-DUSE_OPENMP=ON \
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON
 
 %make_build
