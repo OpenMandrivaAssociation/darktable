@@ -71,12 +71,12 @@ and enables you to develop raw images and enhance them.
 #doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/%{name}*
 %{_libdir}/%{name}
+%{_libexecdir}/%{name}*
 %{_datadir}/appdata/darktable.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
-%{_mandir}/*
 %config %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
 #----------------------------------------------------------------------------
