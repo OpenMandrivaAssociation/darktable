@@ -6,7 +6,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	3.0.2
+Version:	3.2.1
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(GraphicsMagick)
 BuildRequires:	pkgconfig(json-glib-1.0)
+BuildRequires:  pkgconfig(libavif)
 BuildRequires:	pkgconfig(lcms2)
 BuildRequires:	pkgconfig(lensfun)
 BuildRequires:	pkgconfig(libcurl)
@@ -99,7 +100,7 @@ and enables you to develop raw images and enhance them.
 	-DDONT_INSTALL_GCONF_SCHEMAS:BOOLEAN=ON \
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DBINARY_PACKAGE_BUILD=1 \
-	-DPROJECT_VERSION:STRING="%{name}-%{EVRD}" \
+	-DPROJECT_VERSION:STRING="%{version}" \
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON
 
 %make_build
