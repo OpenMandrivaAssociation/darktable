@@ -100,7 +100,7 @@ and enables you to develop raw images and enhance them.
 	-DDONT_INSTALL_GCONF_SCHEMAS:BOOLEAN=ON \
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DBINARY_PACKAGE_BUILD=1 \
-	-DPROJECT_VERSION:STRING="%{name}-%{version}" \
+	-DPROJECT_VERSION:STRING="%{version}" \
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON
 
 %make_build
