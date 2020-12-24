@@ -6,7 +6,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	3.2.1
+Version:	3.4.0
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -60,6 +60,8 @@ BuildRequires:	clang
 BuildRequires:	lld
 
 BuildRequires:  lldb
+# Dirty fix
+BuildRequires:	%{_lib}gpuruntime
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
