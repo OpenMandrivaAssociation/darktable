@@ -60,6 +60,8 @@ BuildRequires:	clang
 BuildRequires:	lld
 
 BuildRequires:  lldb
+# Dirty fix
+BuildRequires:	%{_lib}gpuruntime
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
