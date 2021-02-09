@@ -40,6 +40,7 @@ BuildRequires:	pkgconfig(libgphoto2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libtiff-4)
+BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
@@ -52,6 +53,7 @@ BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
 BuildRequires:	cups-devel
+BuildRequires:  gmic-devel
 BuildRequires:	po4a
 # For OpenCL
 BuildRequires:	llvm
