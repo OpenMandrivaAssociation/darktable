@@ -6,7 +6,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	3.4.0
+Version:	3.4.1
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -40,6 +40,7 @@ BuildRequires:	pkgconfig(libgphoto2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libtiff-4)
+BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
@@ -52,6 +53,7 @@ BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
 BuildRequires:	cups-devel
+BuildRequires:  gmic-devel
 BuildRequires:	po4a
 # For OpenCL
 BuildRequires:	llvm
@@ -85,15 +87,9 @@ and enables you to develop raw images and enhance them.
 
 %prep
 %setup -q
-#patch0 -p0
+%autopatch -p1
 
 %build
-#Build for Cooker i686 fail with clang. For it use gcc, all other arch stay with clang. (penguin)
-#ifarch %{ix86}
-#export CC=gcc
-#export CXX=g++
-#endif
-
 # Fix clang headers detection
 #sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
 
