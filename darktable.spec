@@ -14,7 +14,7 @@ Url:		http://www.darktable.org
 Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{version}/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 # https://github.com/darktable-org/darktable/issues/2093
-Patch0:		fix-aarch64.patch
+#Patch0:		fix-aarch64.patch
 
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
