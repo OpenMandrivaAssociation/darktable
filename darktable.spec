@@ -4,6 +4,9 @@
 %define __noautoreq 'libdarktable\\.so(.*)'
 %endif
 
+# Workaround for https://bugs.llvm.org/show_bug.cgi?id=50981
+%global optflags %{optflags} -g0
+
 Summary:	Utility to organize and develop raw images
 Name:		darktable
 Version:	3.6.0
@@ -15,6 +18,7 @@ Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{
 Source100:	%{name}.rpmlintrc
 # https://github.com/darktable-org/darktable/issues/2093
 #Patch0:		fix-aarch64.patch
+Patch1:		darktable-3.6.0-fix-openmp-version.patch
 
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
@@ -22,7 +26,7 @@ BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	gettext-devel
-BuildRequires:	gomp-devel
+#BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(colord)
@@ -78,8 +82,8 @@ and enables you to develop raw images and enhance them.
 #doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/%{name}*
 %{_libdir}/%{name}
-%{_datadir}/appdata/darktable.appdata.xml
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/metainfo/darktable.appdata.xml
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
@@ -89,27 +93,23 @@ and enables you to develop raw images and enhance them.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
-
-%build
-# Fix clang headers detection
-#sed -i 's|${LLVM_INSTALL_PREFIX}/lib/clang|${LLVM_INSTALL_PREFIX}/%{_lib}/clang|g' CMakeLists.txt
-
+%autosetup -p1
 %cmake \
 	-DCMAKE_LIBRARY_PATH:PATH=%{_libdir} \
 	-DDONT_INSTALL_GCONF_SCHEMAS:BOOLEAN=ON \
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DBINARY_PACKAGE_BUILD=1 \
 	-DPROJECT_VERSION:STRING="%{version}" \
-	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON
+	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON \
+	-G Ninja
 
-%make_build
+%build
+%ninja_build -C build
 
 %install
 export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-%make_install -C build
+%ninja_install -C build
 
 #to find libdarktable.so
 mkdir -p %{buildroot}%{_sysconfdir}/ld.so.conf.d
