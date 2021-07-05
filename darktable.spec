@@ -21,6 +21,7 @@ Source100:	%{name}.rpmlintrc
 Patch1:		darktable-3.6.0-fix-openmp-version.patch
 
 BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
 BuildRequires:	gnome-doc-utils
