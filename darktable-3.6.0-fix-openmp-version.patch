@@ -1,28 +1,7 @@
-diff -up darktable-3.6.0/src/external/rawspeed/cmake/src-dependencies.cmake.omv~ darktable-3.6.0/src/external/rawspeed/cmake/src-dependencies.cmake
---- darktable-3.6.0/src/external/rawspeed/cmake/src-dependencies.cmake.omv~	2021-07-04 23:06:31.960809183 +0200
-+++ darktable-3.6.0/src/external/rawspeed/cmake/src-dependencies.cmake	2021-07-04 23:06:51.131073544 +0200
-@@ -23,7 +23,7 @@ if(WITH_OPENMP)
-   if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR
-      CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
-     # Clang has an option to specify the OpenMP standard to use. Specify it.
--    set(OPENMP_VERSION_SPECIFIER "-fopenmp-version=40")
-+    set(OPENMP_VERSION_SPECIFIER "-fopenmp-version=50")
-   endif()
- 
-   set(CMAKE_C_FLAGS_SAVE "${CMAKE_C_FLAGS}")
-@@ -31,7 +31,7 @@ if(WITH_OPENMP)
-   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
- 
--  find_package(OpenMP 4.0)
-+  find_package(OpenMP 4.5)
- 
-   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_SAVE}")
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_SAVE}")
-diff -up darktable-3.6.0/CMakeLists.txt.omv~ darktable-3.6.0/CMakeLists.txt
---- darktable-3.6.0/CMakeLists.txt.omv~	2021-07-04 23:13:22.096614226 +0200
-+++ darktable-3.6.0/CMakeLists.txt	2021-07-04 23:13:32.250094337 +0200
-@@ -80,7 +80,7 @@ if (USE_OPENMP)
+diff -uraN darktable-3.6.1/CMakeLists.txt omv-darktable-3.6.1/CMakeLists.txt
+--- darktable-3.6.1/CMakeLists.txt	2021-09-10 08:20:12.000000000 +0200
++++ omv-darktable-3.6.1/CMakeLists.txt	2021-11-10 02:07:27.230778664 +0100
+@@ -80,13 +80,13 @@
  
          # Clang has an option to specify the OpenMP standard to use. Specify it.
          # FIXME: Implement this in FindOpenMP.cmake
@@ -31,3 +10,31 @@ diff -up darktable-3.6.0/CMakeLists.txt.omv~ darktable-3.6.0/CMakeLists.txt
  
          set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
          set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
+     endif()
+ 
+-    find_package(OpenMP 4.5 REQUIRED)
++    find_package(OpenMP 4.5 REQUIRED)
+ endif()
+ 
+ # Check for base threading library
+diff -uraN darktable-3.6.1/src/external/rawspeed/cmake/src-dependencies.cmake omv-darktable-3.6.1/src/external/rawspeed/cmake/src-dependencies.cmake
+--- darktable-3.6.1/src/external/rawspeed/cmake/src-dependencies.cmake	2021-09-09 15:34:24.000000000 +0200
++++ omv-darktable-3.6.1/src/external/rawspeed/cmake/src-dependencies.cmake	2021-11-10 02:06:13.812779364 +0100
+@@ -23,7 +23,7 @@
+   if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR
+      CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
+     # Clang has an option to specify the OpenMP standard to use. Specify it.
+-    set(OPENMP_VERSION_SPECIFIER "-fopenmp-version=45")
++    set(OPENMP_VERSION_SPECIFIER "-fopenmp-version=50")
+   endif()
+ 
+   set(CMAKE_C_FLAGS_SAVE "${CMAKE_C_FLAGS}")
+@@ -31,7 +31,7 @@
+   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
+ 
+-  find_package(OpenMP 4.5)
++  find_package(OpenMP 4.5)
+ 
+   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_SAVE}")
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_SAVE}")
