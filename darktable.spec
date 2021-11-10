@@ -18,6 +18,9 @@ Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{
 Source100:	%{name}.rpmlintrc
 # https://github.com/darktable-org/darktable/issues/2093
 #Patch0:		fix-aarch64.patch
+# Needed or build failed with: 
+# builddir/build/BUILD/darktable-3.6.1/src/common/darktable.h:576:3: error: unexpected OpenMP clause 'nontemporal' in directive '#pragma omp simd'
+# for_each_channel(k,aligned(in,out:16) dt_omp_nontemporal(out)) out[k] = in[k];
 Patch1:		darktable-3.6.0-fix-openmp-version.patch
 
 BuildRequires:	cmake
@@ -122,4 +125,3 @@ EOF
 
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 rm -rf %{buildroot}%{_datadir}/doc/%{name}
-
