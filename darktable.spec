@@ -18,7 +18,7 @@ Source0:	https://github.com/darktable-org/darktable/releases/download/release-%{
 Source100:	%{name}.rpmlintrc
 # https://github.com/darktable-org/darktable/issues/2093
 #Patch0:		fix-aarch64.patch
-Patch1:		darktable-3.6.0-fix-openmp-version.patch
+#Patch1:		darktable-3.6.0-fix-openmp-version.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
