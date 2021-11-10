@@ -13,7 +13,7 @@ diff -uraN darktable-3.6.1/CMakeLists.txt omv-darktable-3.6.1/CMakeLists.txt
      endif()
  
 -    find_package(OpenMP 4.5 REQUIRED)
-+    find_package(OpenMP 5.0 REQUIRED)
++    find_package(OpenMP 4.5 REQUIRED)
  endif()
  
  # Check for base threading library
@@ -34,7 +34,7 @@ diff -uraN darktable-3.6.1/src/external/rawspeed/cmake/src-dependencies.cmake om
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPENMP_VERSION_SPECIFIER}")
  
 -  find_package(OpenMP 4.5)
-+  find_package(OpenMP 5.0)
++  find_package(OpenMP 4.5)
  
    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_SAVE}")
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_SAVE}")
