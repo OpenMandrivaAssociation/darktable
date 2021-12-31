@@ -72,6 +72,7 @@ BuildRequires:	llvm
 BuildRequires:	llvm-devel
 BuildRequires:	clang
 BuildRequires:	lld
+BuildRequires:	spirv-llvm-translator
 
 BuildRequires:  lldb
 # Dirty fix
