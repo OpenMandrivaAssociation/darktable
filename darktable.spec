@@ -9,7 +9,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	3.6.1
+Version:	3.8.0
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -22,6 +22,7 @@ Source100:	%{name}.rpmlintrc
 # builddir/build/BUILD/darktable-3.6.1/src/common/darktable.h:576:3: error: unexpected OpenMP clause 'nontemporal' in directive '#pragma omp simd'
 # for_each_channel(k,aligned(in,out:16) dt_omp_nontemporal(out)) out[k] = in[k];
 Patch1:		darktable-3.6.0-fix-openmp-version.patch
+Patch2:		darktable-3.8.0-clang.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
