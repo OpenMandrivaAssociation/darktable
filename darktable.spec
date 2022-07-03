@@ -77,6 +77,7 @@ BuildRequires:	spirv-llvm-translator
 BuildRequires:  lldb
 # Dirty fix
 BuildRequires:	%{_lib}gpuruntime
+BuildRequires:	llvm-static-devel
 BuildRequires:	%{_lib}LLVMDemangle-static-devel
 BuildRequires:	%{_lib}LLVMSupport-static-devel
 
