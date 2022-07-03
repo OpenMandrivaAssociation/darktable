@@ -82,6 +82,7 @@ BuildRequires:	%{_lib}LLVMDemangle-static-devel
 BuildRequires:	%{_lib}LLVMSupport-static-devel
 BuildRequires:	%{_lib}mlir
 BuildRequires:	llvm-bolt
+BuildRequires:	llvm-polly-devel
 
 %description
 Darktable is an open source photography workflow application and RAW developer.
