@@ -4,8 +4,9 @@
 %define __noautoreq 'libdarktable\\.so(.*)'
 %endif
 
+%define _disable_lto 1
 # Workaround for https://bugs.llvm.org/show_bug.cgi?id=50981
-%global optflags %{optflags} -g0
+#global optflags %{optflags} -g0
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
@@ -23,6 +24,7 @@ Source100:	%{name}.rpmlintrc
 # for_each_channel(k,aligned(in,out:16) dt_omp_nontemporal(out)) out[k] = in[k];
 Patch1:		darktable-3.6.0-fix-openmp-version.patch
 Patch2:		darktable-3.8.0-clang.patch
+Patch3:		darktable-4.0.0-compile.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
@@ -99,7 +101,6 @@ and enables you to develop raw images and enhance them.
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
-%{_mandir}/*
 %config %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
 #----------------------------------------------------------------------------
@@ -129,7 +130,7 @@ cat > %{buildroot}%{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf << EOF
 %{_libdir}/%{name}
 EOF
 
-%find_lang %{name}
+%find_lang %{name} --all-name --with-man
 
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 rm -rf %{buildroot}%{_datadir}/doc/%{name}

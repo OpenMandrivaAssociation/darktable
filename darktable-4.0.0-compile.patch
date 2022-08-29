@@ -1,0 +1,24 @@
+diff -up darktable-4.0.0/src/CMakeLists.txt.omv~ darktable-4.0.0/src/CMakeLists.txt
+--- darktable-4.0.0/src/CMakeLists.txt.omv~	2022-08-29 01:44:59.039724076 +0200
++++ darktable-4.0.0/src/CMakeLists.txt	2022-08-29 01:45:51.966496652 +0200
+@@ -258,6 +258,8 @@ if(APPLE AND (CMAKE_CXX_COMPILER_ID STRE
+         list(REMOVE_ITEM CMAKE_CXX_IMPLICIT_LINK_LIBRARIES to_library)
+ endif()
+ 
++list(APPEND LIBS "-lcurl")
++
+ # Append thread flags/libraries to LIBS
+ list(APPEND LIBS "${CMAKE_THREAD_LIBS_INIT}")
+ 
+diff -up darktable-4.0.0/src/common/darktable.h.omv~ darktable-4.0.0/src/common/darktable.h
+--- darktable-4.0.0/src/common/darktable.h.omv~	2022-08-29 01:41:43.552812211 +0200
++++ darktable-4.0.0/src/common/darktable.h	2022-08-29 01:42:06.809494136 +0200
+@@ -126,7 +126,7 @@ typedef unsigned int u_int;
+ /* Create cloned functions for various CPU SSE generations */
+ /* See for instructions https://hannes.hauswedell.net/post/2017/12/09/fmv/ */
+ /* TL;DR : use only on SIMD functions containing low-level paralellized/vectorized loops */
+-#if __has_attribute(target_clones) && !defined(_WIN32) && !defined(NATIVE_ARCH)
++#if __has_attribute(target_clones) && !defined(_WIN32) && !defined(NATIVE_ARCH) && (!defined(__clang__) || __clang__ > 14)
+ # if defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64)
+ #define __DT_CLONE_TARGETS__ __attribute__((target_clones("default", "sse2", "sse3", "sse4.1", "sse4.2", "popcnt", "avx", "avx2", "avx512f", "fma4")))
+ # elif defined(__PPC64__)
