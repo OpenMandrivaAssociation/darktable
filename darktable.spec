@@ -4,13 +4,13 @@
 %define __noautoreq 'libdarktable\\.so(.*)'
 %endif
 
-%define _disable_lto 1
+#define _disable_lto 1
 # Workaround for https://bugs.llvm.org/show_bug.cgi?id=50981
 #global optflags %{optflags} -g0
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	4.0.0
+Version:	4.0.1
 Release:	1
 Group:		Graphics
 License:	GPLv3+
