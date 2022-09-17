@@ -4,7 +4,7 @@
 %define __noautoreq 'libdarktable\\.so(.*)'
 %endif
 
-%define _disable_lto 1
+#define _disable_lto 1
 # Workaround for https://bugs.llvm.org/show_bug.cgi?id=50981
 #global optflags %{optflags} -g0
 
