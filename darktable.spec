@@ -11,7 +11,7 @@
 Summary:	Utility to organize and develop raw images
 Name:		darktable
 Version:	4.0.1
-Release:	1
+Release:	2
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
