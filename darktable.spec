@@ -10,8 +10,8 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	4.0.1
-Release:	3
+Version:	4.2.0
+Release:	1
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
@@ -55,6 +55,7 @@ BuildRequires:	pkgconfig(libgphoto2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libtiff-4)
+BuildRequires:	pkgconfig(libjxl)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sqlite3)
