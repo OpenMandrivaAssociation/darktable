@@ -116,6 +116,8 @@ and enables you to develop raw images and enhance them.
 	-DBINARY_PACKAGE_BUILD=1 \
 	-DPROJECT_VERSION:STRING="%{version}" \
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON \
+	-DBUILD_NOISE_TOOLS=ON \
+	-DBUILD_CURVE_TOOLS=ON \
 	-G Ninja
 
 %build
