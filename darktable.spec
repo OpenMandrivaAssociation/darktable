@@ -73,6 +73,7 @@ BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
 BuildRequires:	cups-devel
 BuildRequires:  gmic-devel
+BuildRequires:	gmic
 BuildRequires:	python-jsonschema
 BuildRequires:	po4a
 # For OpenCL
@@ -92,6 +93,9 @@ BuildRequires:	%{_lib}mlir
 BuildRequires:	llvm-bolt
 BuildRequires:	llvm-polly-devel
 
+Recommends:	%{name}-tools-noise = %{EVRD}
+Recommends:	%{name}-tools-basecurve = %{EVRD}
+
 %description
 Darktable is an open source photography workflow application and RAW developer.
 A virtual lighttable and darkroom for photographers. It manages your digital
@@ -109,34 +113,34 @@ and enables you to develop raw images and enhance them.
 %{_mandir}/man1/%{name}*
 %config %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
-%package -n tools-noise
+%package -n %{name}-tools-noise
 Summary:        Noise profiling tool to add support for new cameras in darktable
 Group:          Graphics/Photography
 Requires:       gnuplot
 Requires:       imagemagick
 
-%description -n tools-noise
+%description -n %{name}-tools-noise
 The darktable noise command line tool can be used to generate noise profiles for
 new cameras which are not included yet in darktable. You can then contribute
 these noise profiles to the darktable project.
 
-%files -n tools-noise
+%files -n %{name}-tools-noise
 %{_libexecdir}/%{name}/tools/%{name}-gen-noiseprofile
 %{_libexecdir}/%{name}/tools/%{name}-noiseprofile
 %{_libexecdir}/%{name}/tools/profiling-shot.xmp
 %{_libexecdir}/%{name}/tools/subr.sh
 
-%package -n tools-basecurve
+%package -n %{name}-tools-basecurve
 Summary:        Basecurve tool for darktable
 Group:          Graphics/Photography
 Requires:       dcraw
 Requires:       imagemagick
 Requires:       perl-Image-ExifTool
 
-%description -n tools-basecurve
+%description -n %{name}-tools-basecurve
 The darktable basecurve command line tool.
 
-%files -n tools-basecurve
+%files -n %{name}-tools-basecurve
 %{_libexecdir}/%{name}/tools/%{name}-curve-tool
 %{_libexecdir}/%{name}/tools/%{name}-curve-tool-helper
 %{_datadir}/%{name}/tools/basecurve/
