@@ -109,7 +109,7 @@ and enables you to develop raw images and enhance them.
 %{_mandir}/man1/%{name}*
 %config %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
-%package tools-noise
+%package -n tools-noise
 Summary:        Noise profiling tool to add support for new cameras in darktable
 Group:          Graphics/Photography
 Requires:       gnuplot
