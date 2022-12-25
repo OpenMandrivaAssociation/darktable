@@ -115,33 +115,32 @@ Group:          Graphics/Photography
 Requires:       gnuplot
 Requires:       imagemagick
 
-%description tools-noise
+%description -n tools-noise
 The darktable noise command line tool can be used to generate noise profiles for
 new cameras which are not included yet in darktable. You can then contribute
 these noise profiles to the darktable project.
 
-The provided tools are:
+%files -n tools-noise
 %{_libexecdir}/%{name}/tools/%{name}-gen-noiseprofile
 %{_libexecdir}/%{name}/tools/%{name}-noiseprofile
+%{_libexecdir}/%{name}/tools/profiling-shot.xmp
+%{_libexecdir}/%{name}/tools/subr.sh
 
-See https://pixls.us/articles/how-to-create-camera-noise-profiles-for-darktable/
-for details.
-
-%package tools-basecurve
+%package -n tools-basecurve
 Summary:        Basecurve tool for darktable
 Group:          Graphics/Photography
 Requires:       dcraw
 Requires:       imagemagick
 Requires:       perl-Image-ExifTool
 
-%description tools-basecurve
+%description -n tools-basecurve
 The darktable basecurve command line tool.
 
-The provided tools are:
+%files -n tools-basecurve
 %{_libexecdir}/%{name}/tools/%{name}-curve-tool
 %{_libexecdir}/%{name}/tools/%{name}-curve-tool-helper
+%{_datadir}/%{name}/tools/basecurve/
 
-See https://www.darktable.org/2013/10/about-basecurves/ for details.
 
 
 #----------------------------------------------------------------------------
