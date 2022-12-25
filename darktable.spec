@@ -36,6 +36,7 @@ BuildRequires:	intltool
 BuildRequires:	gettext-devel
 #BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
+BuildRequires:	portmidi-devel
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(colord-gtk)
@@ -45,6 +46,7 @@ BuildRequires:	pkgconfig(flickcurl)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(GraphicsMagick)
+BuildRequires:	pkgconfig(jasper)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:  pkgconfig(libavif)
 BuildRequires:	pkgconfig(lcms2)
@@ -58,6 +60,7 @@ BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(libjxl)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(OpenEXR)
+BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pugixml-devel
@@ -70,6 +73,7 @@ BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
 BuildRequires:	cups-devel
 BuildRequires:  gmic-devel
+BuildRequires:	python-jsonschema
 BuildRequires:	po4a
 # For OpenCL
 BuildRequires:	llvm
@@ -105,6 +109,41 @@ and enables you to develop raw images and enhance them.
 %{_mandir}/man1/%{name}*
 %config %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
+%package tools-noise
+Summary:        Noise profiling tool to add support for new cameras in darktable
+Group:          Graphics/Photography
+Requires:       gnuplot
+Requires:       imagemagick
+
+%description tools-noise
+The darktable noise command line tool can be used to generate noise profiles for
+new cameras which are not included yet in darktable. You can then contribute
+these noise profiles to the darktable project.
+
+The provided tools are:
+%{_libexecdir}/%{name}/tools/%{name}-gen-noiseprofile
+%{_libexecdir}/%{name}/tools/%{name}-noiseprofile
+
+See https://pixls.us/articles/how-to-create-camera-noise-profiles-for-darktable/
+for details.
+
+%package tools-basecurve
+Summary:        Basecurve tool for darktable
+Group:          Graphics/Photography
+Requires:       dcraw
+Requires:       imagemagick
+Requires:       perl-Image-ExifTool
+
+%description tools-basecurve
+The darktable basecurve command line tool.
+
+The provided tools are:
+%{_libexecdir}/%{name}/tools/%{name}-curve-tool
+%{_libexecdir}/%{name}/tools/%{name}-curve-tool-helper
+
+See https://www.darktable.org/2013/10/about-basecurves/ for details.
+
+
 #----------------------------------------------------------------------------
 
 %prep
@@ -118,6 +157,7 @@ and enables you to develop raw images and enhance them.
 	-DINSTALL_IOP_EXPERIMENTAL:BOOLEAN=ON \
 	-DBUILD_NOISE_TOOLS=ON \
 	-DBUILD_CURVE_TOOLS=ON \
+	-DRAWSPEED_ENABLE_LTO=ON \
 	-G Ninja
 
 %build
