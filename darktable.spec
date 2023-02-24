@@ -107,7 +107,7 @@ and enables you to develop raw images and enhance them.
 %{_bindir}/%{name}*
 %{_libdir}/%{name}
 %{_datadir}/applications/org.darktable.darktable.desktop
-#{_datadir}/metainfo/darktable.appdata.xml
+%{_datadir}/metainfo/org.darktable.darktable.appdata.xml
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
 %{_mandir}/man1/%{name}*
