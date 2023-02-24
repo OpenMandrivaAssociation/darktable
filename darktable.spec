@@ -106,7 +106,7 @@ and enables you to develop raw images and enhance them.
 #doc doc/README doc/AUTHORS doc/LICENSE doc/TRANSLATORS
 %{_bindir}/%{name}*
 %{_libdir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/org.darktable.darktable.desktop
 %{_datadir}/metainfo/darktable.appdata.xml
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}*
@@ -179,5 +179,5 @@ EOF
 
 %find_lang %{name} --all-name --with-man
 
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
+desktop-file-validate %{buildroot}/%{_datadir}/applications/org.darktable.darktable.desktop
 rm -rf %{buildroot}%{_datadir}/doc/%{name}
