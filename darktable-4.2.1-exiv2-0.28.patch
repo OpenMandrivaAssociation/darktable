@@ -1,0 +1,61 @@
+diff -up darktable-4.2.1/src/common/exif.cc.omv~ darktable-4.2.1/src/common/exif.cc
+--- darktable-4.2.1/src/common/exif.cc.omv~	2023-05-18 03:19:31.207916542 +0200
++++ darktable-4.2.1/src/common/exif.cc	2023-05-18 03:22:51.902769296 +0200
+@@ -45,6 +45,13 @@ extern "C" {
+ 
+ #include <exiv2/exiv2.hpp>
+ 
++#if EXIV2_TEST_VERSION(0,28,0)
++#define AnyError Error
++#define toLong toUint32
++#define pData_ data()
++#define size_ size()
++#endif
++
+ #if defined(_WIN32) && defined(EXV_UNICODE_PATH)
+   #define WIDEN(s) pugi::as_wide(s)
+ #else
+@@ -4370,7 +4377,9 @@ int dt_exif_xmp_attach_export(const int
+     }
+     catch(Exiv2::AnyError &e)
+     {
+-#if EXIV2_TEST_VERSION(0,27,0)
++#if EXIV2_TEST_VERSION(0,28,0)
++      if(e.code() == Exiv2::ErrorCode::kerTooLargeJpegSegment)
++#elif EXIV2_TEST_VERSION(0,27,0)
+       if(e.code() == Exiv2::kerTooLargeJpegSegment)
+ #else
+       if(e.code() == 37)
+diff -up darktable-4.2.1/tools/basecurve/exif-wrapper.cpp.omv~ darktable-4.2.1/tools/basecurve/exif-wrapper.cpp
+--- darktable-4.2.1/tools/basecurve/exif-wrapper.cpp.omv~	2023-05-18 03:17:59.658083590 +0200
++++ darktable-4.2.1/tools/basecurve/exif-wrapper.cpp	2023-05-18 03:19:17.477791064 +0200
+@@ -19,6 +19,7 @@
+ #include <exiv2/exif.hpp>
+ #include <exiv2/error.hpp>
+ #include <exiv2/image.hpp>
++#include <exiv2/version.hpp>
+ 
+ #include <cstdio>
+ #include <cassert>
+@@ -36,13 +37,21 @@ exif_get_ascii_datafield(
+ 
+   try
+   {
++#if EXIV2_TEST_VERSION(0,28,0)
++    Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(filename);
++#else
+     Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(filename);
++#endif
+     assert(image.get() != 0);
+     image->readMetadata();
+ 
+     Exiv2::ExifData &exifData = image->exifData();
+ 
++#if EXIV2_TEST_VERSION(0,28,0)
++    Exiv2::Value::UniquePtr val = exifData[key].getValue();
++#else
+     Exiv2::Value::AutoPtr val = exifData[key].getValue();
++#endif
+ 
+     if (val->typeId() != Exiv2::asciiString)
+     {
