@@ -10,8 +10,8 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	4.2.1
-Release:	3
+Version:	4.4.0
+Release:	1
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
@@ -26,7 +26,6 @@ Patch1:		darktable-3.6.0-fix-openmp-version.patch
 Patch2:		darktable-3.8.0-clang.patch
 Patch3:		darktable-4.0.0-compile.patch
 Patch4:		fix-aarch64.patch
-Patch5:		darktable-4.2.1-exiv2-0.28.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
