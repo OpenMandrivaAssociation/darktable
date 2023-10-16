@@ -26,6 +26,7 @@ Patch1:		darktable-3.6.0-fix-openmp-version.patch
 Patch2:		darktable-3.8.0-clang.patch
 Patch3:		darktable-4.0.0-compile.patch
 Patch4:		fix-aarch64.patch
+Patch5:		libavif-1.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
@@ -144,7 +145,6 @@ The darktable basecurve command line tool.
 %{_libexecdir}/%{name}/tools/%{name}-curve-tool
 %{_libexecdir}/%{name}/tools/%{name}-curve-tool-helper
 %{_datadir}/%{name}/tools/basecurve/
-
 
 
 #----------------------------------------------------------------------------
