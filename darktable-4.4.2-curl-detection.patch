@@ -1,0 +1,13 @@
+diff -up darktable-4.4.2/src/imageio/storage/CMakeLists.txt.omv~ darktable-4.4.2/src/imageio/storage/CMakeLists.txt
+--- darktable-4.4.2/src/imageio/storage/CMakeLists.txt.omv~	2023-11-04 19:49:20.714065985 +0100
++++ darktable-4.4.2/src/imageio/storage/CMakeLists.txt	2023-11-04 19:49:33.890193758 +0100
+@@ -7,7 +7,8 @@ add_definitions(-include imageio/storage
+ 
+ set(MODULES disk email gallery latex)
+ 
+-find_package(CURL 7.56)
++#find_package(CURL 7.56)
++set(CURL_FOUND ON)
+ if(CURL_FOUND)
+   message(STATUS "Found recent CURL version to build piwigo.")
+   list(APPEND MODULES piwigo)
