@@ -10,8 +10,8 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	4.4.2
-Release:	4
+Version:	4.6.0
+Release:	1
 Group:		Graphics
 License:	GPLv3+
 Url:		http://www.darktable.org
@@ -26,7 +26,7 @@ Patch1:		darktable-3.6.0-fix-openmp-version.patch
 Patch2:		darktable-3.8.0-clang.patch
 Patch3:		darktable-4.0.0-compile.patch
 Patch4:		fix-aarch64.patch
-Patch5:		libavif-1.patch
+#Patch5:		libavif-1.patch
 # Don't call FindCURL.cmake -- the custom checks
 # clash with the cmake file recently added to CURL itself
 Patch6:		darktable-4.4.2-curl-detection.patch
