@@ -22,7 +22,7 @@ Source100:	%{name}.rpmlintrc
 # Needed or build failed with: 
 # builddir/build/BUILD/darktable-3.6.1/src/common/darktable.h:576:3: error: unexpected OpenMP clause 'nontemporal' in directive '#pragma omp simd'
 # for_each_channel(k,aligned(in,out:16) dt_omp_nontemporal(out)) out[k] = in[k];
-Patch1:		darktable-3.6.0-fix-openmp-version.patch
+#Patch1:		darktable-3.6.0-fix-openmp-version.patch
 Patch2:		darktable-3.8.0-clang.patch
 Patch3:		darktable-4.0.0-compile.patch
 Patch4:		fix-aarch64.patch
