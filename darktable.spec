@@ -24,7 +24,7 @@ Source100:	%{name}.rpmlintrc
 # for_each_channel(k,aligned(in,out:16) dt_omp_nontemporal(out)) out[k] = in[k];
 #Patch1:		darktable-3.6.0-fix-openmp-version.patch
 Patch2:		darktable-3.8.0-clang.patch
-Patch3:		darktable-4.0.0-compile.patch
+#Patch3:		darktable-4.0.0-compile.patch
 Patch4:		fix-aarch64.patch
 # Don't call FindCURL.cmake -- the custom checks
 # clash with the cmake file recently added to CURL itself
