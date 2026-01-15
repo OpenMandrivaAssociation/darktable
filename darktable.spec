@@ -29,8 +29,6 @@ Patch4:		fix-aarch64.patch
 # Don't call FindCURL.cmake -- the custom checks
 # clash with the cmake file recently added to CURL itself
 #Patch6:		darktable-4.4.2-curl-detection.patch
-# fix build with Clang 21
-Patch5:		https://patch-diff.githubusercontent.com/raw/darktable-org/darktable/pull/19038.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
