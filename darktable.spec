@@ -10,7 +10,7 @@
 
 Summary:	Utility to organize and develop raw images
 Name:		darktable
-Version:	5.4.1
+Version:	5.6.0
 Release:	1
 Group:		Graphics
 License:	GPLv3+
@@ -163,6 +163,7 @@ The darktable basecurve command line tool.
 	-DBUILD_NOISE_TOOLS=ON \
 	-DBUILD_CURVE_TOOLS=ON \
 	-DRAWSPEED_ENABLE_LTO=ON \
+	-DUSE_AI=ON \
 	-G Ninja
 
 %build
