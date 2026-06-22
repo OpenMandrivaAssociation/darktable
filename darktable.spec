@@ -173,6 +173,7 @@ The darktable basecurve command line tool.
 	-DBUILD_CURVE_TOOLS=ON \
 	-DRAWSPEED_ENABLE_LTO=ON \
 	-DUSE_AI=ON \
+	-DHAVE_GMIC=OFF \
 	-G Ninja
 
 %build
