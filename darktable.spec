@@ -83,6 +83,7 @@ BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
 BuildRequires:	cups-devel
 BuildRequires:  gmic-devel
+BuildRequires:	%{_lib}cgmic-devel
 BuildRequires:	gmic
 BuildRequires:	potrace-devel
 BuildRequires:	python-jsonschema
