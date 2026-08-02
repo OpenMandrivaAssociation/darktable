@@ -1,6 +1,7 @@
-diff -uraN darktable-4.2.0/src/is_supported_platform.h omv-darktable-4.2.0/src/is_supported_platform.h
---- darktable-4.2.0/src/is_supported_platform.h	2022-12-14 16:18:18.000000000 +0100
-+++ omv-darktable-4.2.0/src/is_supported_platform.h	2022-12-24 19:40:37.151786245 +0100
+diff --git a/src/is_supported_platform.h b/src/is_supported_platform.h
+index 8fc8c94..de65a51 100644
+--- a/src/is_supported_platform.h
++++ b/src/is_supported_platform.h
 @@ -30,7 +30,7 @@
  #define DT_SUPPORTED_X86 0
  #endif

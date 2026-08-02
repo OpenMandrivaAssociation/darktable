@@ -1,7 +1,8 @@
-diff -uraN darktable-4.6.0/src/develop/noise_generator.h omv-darktable-4.6.0/src/develop/noise_generator.h
---- darktable-4.6.0/src/develop/noise_generator.h	2023-12-14 20:44:41.000000000 +0100
-+++ omv-darktable-4.6.0/src/develop/noise_generator.h	2023-12-24 15:04:27.817312453 +0100
-@@ -241,8 +241,7 @@
+diff --git a/src/develop/noise_generator.h b/src/develop/noise_generator.h
+index b3451f1..ebb0c38 100644
+--- a/src/develop/noise_generator.h
++++ b/src/develop/noise_generator.h
+@@ -221,8 +221,7 @@ static inline void poisson_noise_simd(const dt_aligned_pixel_t mu,
    // Now we have gaussian noise, then apply Anscombe transform to get poissonian one.
    dt_aligned_pixel_t r = { 0.f };
  
