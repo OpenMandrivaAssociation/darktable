@@ -75,6 +75,7 @@ BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
+BuildRequires:	pkgconfig(wayland-client)
 BuildRequires:	cups-devel
 BuildRequires:  gmic-devel
 BuildRequires:	%{_lib}gmic
