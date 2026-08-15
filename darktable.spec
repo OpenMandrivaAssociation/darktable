@@ -40,6 +40,7 @@ BuildRequires:	gettext-devel
 #BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	portmidi-devel
+BuildRequires:	potrace-devel
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(colord-gtk)
