@@ -171,6 +171,7 @@ The darktable basecurve command line tool.
 	-G Ninja
 
 %build
+export LDFLAGS="%{build_ldflags} -lwayland-client"
 %ninja_build -C build
 
 %install
