@@ -40,6 +40,7 @@ BuildRequires:	gettext-devel
 #BuildRequires:	gomp-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	portmidi-devel
+BuildRequires:	potrace-devel
 BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(colord)
 BuildRequires:	pkgconfig(colord-gtk)
@@ -51,16 +52,19 @@ BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(GraphicsMagick)
 BuildRequires:	pkgconfig(jasper)
 BuildRequires:	pkgconfig(json-glib-1.0)
+BuildRequires:	pkgconfig(libarchive)
 BuildRequires:  pkgconfig(libavif)
 BuildRequires:	pkgconfig(lcms2)
 BuildRequires:	pkgconfig(lensfun)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(libgphoto2)
+BuildRequires:	pkgconfig(libheif)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(libjxl)
+BuildRequires:	pkgconfig(libonnxruntime)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sdl2)
@@ -74,9 +78,13 @@ BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
+BuildRequires:	pkgconfig(wayland-client)
 BuildRequires:	cups-devel
 BuildRequires:  gmic-devel
-BuildRequires:	gmic
+BuildRequires:	%{_lib}gmic
+BuildRequires:	%{_lib}cgmic-devel
+BuildRequires:	%{_lib}cgmic
+BuildRequires:	gmic gmic-qt
 BuildRequires:	python-jsonschema
 BuildRequires:	po4a
 # For OpenCL
@@ -163,9 +171,12 @@ The darktable basecurve command line tool.
 	-DBUILD_NOISE_TOOLS=ON \
 	-DBUILD_CURVE_TOOLS=ON \
 	-DRAWSPEED_ENABLE_LTO=ON \
+	-DUSE_AI=ON \
+	-DCMAKE_SHARED_LINKER_FLAGS="-lwayland-client" \
 	-G Ninja
 
 %build
+export LDFLAGS="%{build_ldflags} -lwayland-client"
 %ninja_build -C build
 
 %install
