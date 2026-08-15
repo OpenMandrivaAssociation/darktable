@@ -58,10 +58,12 @@ BuildRequires:	pkgconfig(lensfun)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(libgphoto2)
+BuildRequires:	pkgconfig(libheif)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libtiff-4)
 BuildRequires:	pkgconfig(libjxl)
+BuildRequires:	pkgconfig(libonnxruntime)
 BuildRequires:  pkgconfig(libwebp)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sdl2)
@@ -168,6 +170,7 @@ The darktable basecurve command line tool.
 	-DBUILD_NOISE_TOOLS=ON \
 	-DBUILD_CURVE_TOOLS=ON \
 	-DRAWSPEED_ENABLE_LTO=ON \
+	-DUSE_AI=ON \
 	-DCMAKE_SHARED_LINKER_FLAGS="-lwayland-client" \
 	-G Ninja
 
