@@ -168,6 +168,7 @@ The darktable basecurve command line tool.
 	-DBUILD_NOISE_TOOLS=ON \
 	-DBUILD_CURVE_TOOLS=ON \
 	-DRAWSPEED_ENABLE_LTO=ON \
+	-DCMAKE_SHARED_LINKER_FLAGS="-lwayland-client" \
 	-G Ninja
 
 %build
