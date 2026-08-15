@@ -77,7 +77,10 @@ BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(osmgpsmap-1.0)
 BuildRequires:	cups-devel
 BuildRequires:  gmic-devel
-BuildRequires:	gmic
+BuildRequires:	%{_lib}gmic
+BuildRequires:	%{_lib}cgmic-devel
+BuildRequires:	%{_lib}cgmic
+BuildRequires:	gmic gmic-qt
 BuildRequires:	python-jsonschema
 BuildRequires:	po4a
 # For OpenCL
